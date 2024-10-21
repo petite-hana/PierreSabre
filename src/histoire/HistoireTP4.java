@@ -39,10 +39,18 @@ public class HistoireTP4 {
 		roro.donner(marco);
 	}
 
+	private static void scenario5() {
+		Ronin roro = new Ronin("Roro", "shochu", 54);
+		Yakuza yaku = new Yakuza("Yaku Le Noir", "whisky", 45, "Warsong");
+
+		roro.provoquer(yaku);
+	}
+
 	public static void main(String[] _) {
 //		scenario1();
 //		scenario2();
 //		scenario3();
-		scenario4();
+//		scenario4();
+		scenario5();
 	}
 }
