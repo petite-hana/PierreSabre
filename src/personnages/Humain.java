@@ -3,7 +3,7 @@ package personnages;
 public class Humain {
 	private String nom;
 	private String boissonFavotite;
-	private int argent;
+	protected int argent;
 
 	public Humain(String nom, String boissonFavotite, int argent) {
 		this.nom = nom;
@@ -30,7 +30,7 @@ public class Humain {
 	public void acheter(String bien, int prix) {
 		boolean tropCher = prix > argent;
 		String phrase = String.format(
-				tropCher ? "Je n'ai plus que %d sous en poche. Je ne peux même pas m'offrir %s à &d sous."
+				tropCher ? "Je n'ai plus que %d sous en poche. Je ne peux même pas m'offrir %s à %d sous."
 				: "J'ai %d sous en poche. Je vais pouvoir m'orir %s à %d sous.",
 				argent, bien, prix
 		);
@@ -40,15 +40,15 @@ public class Humain {
 			perdreArgent(prix);
 		}
 	}
-	private void parler(String texte) {
+	protected void parler(String texte) {
 		System.out.printf("(%s) - %s\n", nom, texte);
 	}
 
-	private void gagnerArgent(int somme) {
+	protected void gagnerArgent(int somme) {
 		argent += somme;
 	}
 
-	private void perdreArgent(int somme) {
+	protected void perdreArgent(int somme) {
 		argent -= somme;
 	}
 }
